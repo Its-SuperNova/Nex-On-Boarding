@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 214 95% 93%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 267 59% 94%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+    --card: 240 10% 4%;
+    --card-foreground: 210 40% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217 70% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 267 50% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom font class */
+  .font-custom {
+    font-family: var(--font-custom);
+  }
+
+  /* Bricolage Grotesque font class */
+  .font-bricolage {
+    font-family: var(--font-bricolage);
+  }
+}
+
+.font-heading {
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Futuristic hero styles */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(45, 0, 83, 0.9) 50%, rgba(0, 0, 0, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, rgba(59, 130, 246, 0.4) 30%, transparent 70%);
+  filter: blur(60px);
+  border-radius: 100%;
+  z-index: 0;
+  animation: float 8s ease-in-out infinite;
+}
+
+.hero-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, #d8b4fe, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* White to purple gradient for the final text */
+.white-blue-gradient {
+  background: linear-gradient(to right, #ffffff, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Typewriter text gradient */
+.typewriter-gradient {
+  background: linear-gradient(to right, #fff, #93c5fd, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+/* Lighter typewriter gradient for the tagline */
+.typewriter-gradient-light {
+  background: linear-gradient(to right, #e2e8f0, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.futuristic-card {
+  background: rgba(0, 24, 48, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+  border: none;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+  transform: translateY(-2px);
+}
+
+.glow-button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.glow-button:hover::after {
+  opacity: 1;
+  transform: rotate(30deg) translate(10%, -10%);
+}
+
+/* Custom Loader Animation */
+.custom-loader {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  background: radial-gradient(11.2px, #3b82f6 94%, transparent);
+  animation: pulse 1.5s infinite alternate;
+}
+
+.custom-loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(10.08px at bottom right, transparent 94%, #3b82f6) top left,
+    radial-gradient(10.08px at bottom left, transparent 94%, #3b82f6) top right,
+    radial-gradient(10.08px at top right, transparent 94%, #3b82f6) bottom left,
+    radial-gradient(10.08px at top left, transparent 94%, #3b82f6) bottom right;
+  background-size: 22.4px 22.4px;
+  background-repeat: no-repeat;
+  animation: loader 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+
+@keyframes loader {
+  33% {
+    inset: -11.2px;
+    transform: rotate(0deg);
+  }
+
+  66% {
+    inset: -11.2px;
+    transform: rotate(90deg);
+  }
+
+  100% {
+    inset: 0;
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Learning path card hover effects */
+.path-card {
+  transition: all 0.3s ease;
+}
+
+.path-card:hover {
+  transform: scale(1.05);
+}
+
+.path-card-icon {
+  transition: transform 0.3s ease;
+}
+
+.path-card:hover .path-card-icon {
+  transform: scale(0.9);
+}
